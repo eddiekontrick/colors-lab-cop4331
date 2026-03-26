@@ -1,0 +1,33 @@
+@startuml
+start
+
+:Open Web App;
+
+if (User logged in?) then (No)
+  :Enter Username/Password;
+  :Send Login Request;
+  
+  if (Valid?) then (Yes)
+    :Store User Info (cookie);
+  else (No)
+    :Show Error;
+    stop
+  endif
+endif
+
+:Display Color Interface;
+
+if (User action?) then (Search)
+  :Enter Search Text;
+  :Send Search Request;
+  :Display Results;
+elseif (Add Color)
+  :Enter Color;
+  :Send Add Request;
+  :Update List;
+endif
+
+:User can Log Out;
+
+stop
+@enduml
